@@ -39,24 +39,33 @@ post('/add_contact_form') do
 end
 
 get('/contact/:id') do
-  # @selected_contact = Contact.find(params.fetch('id').to_i)
   Contact.store_working_contact(Contact.find(params.fetch('id').to_i))
   erb(:contact)
 end
 
-get('/address_form/:id') do
-  # @selected_contact = Contact.find(params.fetch('id').to_i)
-  erb(:address_form)
+get('/contact_info_form') do
+  erb(:contact_info_form)
 end
 
-post('/address_form/:id') do
-  # @selected_contact = Contact.find(params.fetch('id').to_i)
+post('/address_form') do
   street = params.fetch('street')
   city = params.fetch('city')
   zip  = params.fetch('zip')
   state = params.fetch('state')
   country = params.fetch('country')
+  Contact.get_working_contact.store_address(Address.new(street, city, zip, state, country))
+  redirect('/contact/' + Contact.get_working_contact.id.to_s)
+end
 
-  @selected_contact.store_address(Address.new(street, city, zip, state, country))
-  redirect('/contact/' + params.fetch('id'))
+post('/phone_form') do
+  type = params.fetch('type')
+  number = params.fetch('number')
+  Contact.get_working_contact.store_phone(Phone.new(number, type))
+  redirect('/contact/' + Contact.get_working_contact.id.to_s)
+end
+
+post('/email_form') do
+  email = params.fetch('email')
+  Contact.get_working_contact.store_email(Email.new(email))
+  redirect('/contact/' + Contact.get_working_contact.id.to_s)
 end

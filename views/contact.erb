@@ -1,17 +1,44 @@
 <h1>Contact: <%=Contact.get_working_contact.first_name + Contact.get_working_contact.last_name%></h1>
 
-<a href="/address_form/<%=Contact.get_working_contact.id%>"><button>Add Address</button></a>
+<a href="/contact_info_form"><button>Add info</button></a>
 
-<h3>Addresses:</h3>
-<ul>
-  <% count=1%>
-  <%Contact.get_working_contact.addresses.each do |address|%>
-    <h3>Address <%=count%></h3>
-    <li>Street: <%=address.street%></li>
-    <li>City: <%=address.city%></li>
-    <li>Zip: <%=address.zip%></li>
-    <li>State: <%=address.state%></li>
-    <li>Country: <%=address.country%></li>
-    <%count+=1%>
-  <%end%>
-</ul>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Addresses:</h3>
+    <ul>
+      <% count=1%>
+      <%Contact.get_working_contact.addresses.each do |address|%>
+        <h3>Address <%=count%></h3>
+        <li>Street: <%=address.street%></li>
+        <li>City: <%=address.city%></li>
+        <li>Zip: <%=address.zip%></li>
+        <li>State: <%=address.state%></li>
+        <li>Country: <%=address.country%></li>
+        <%count+=1%>
+      <%end%>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>Phone Numbers:</h3>
+    <ul>
+      <% count=1%>
+      <%Contact.get_working_contact.phones.each do |phone|%>
+        <h3>Phone number <%=count%></h3>
+        <li>Type: <%=phone.type%></li>
+        <li>Phone Number: <%=phone.number%></li>
+        <%count+=1%>
+      <%end%>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h3>Emails:</h3>
+    <ul>
+      <% count=1%>
+      <%Contact.get_working_contact.emails.each do |email|%>
+        <h3>Email <%=count%></h3>
+        <li><%=email.email%></li>
+        <%count+=1%>
+      <%end%>
+    </ul>
+  </div>
+</div>
