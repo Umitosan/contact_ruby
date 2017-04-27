@@ -1,11 +1,17 @@
-<h1>Contact: <%=@selected_contact.first_name + @selected_contact.last_name%></h1>
+<h1>Contact: <%=Contact.get_working_contact.first_name + Contact.get_working_contact.last_name%></h1>
 
+<a href="/address_form/<%=Contact.get_working_contact.id%>"><button>Add Address</button></a>
 
 <h3>Addresses:</h3>
 <ul>
-  <%=@selected_contact.addresses.each do |address|%>
-  <%=%>
-  <%=%>
-  <%=%>
+  <% count=1%>
+  <%Contact.get_working_contact.addresses.each do |address|%>
+    <h3>Address <%=count%></h3>
+    <li>Street: <%=address.street%></li>
+    <li>City: <%=address.city%></li>
+    <li>Zip: <%=address.zip%></li>
+    <li>State: <%=address.state%></li>
+    <li>Country: <%=address.country%></li>
+    <%count+=1%>
   <%end%>
 </ul>

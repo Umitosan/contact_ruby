@@ -1,6 +1,10 @@
+
+
+
 class Contact
   attr_accessor(:first_name, :last_name, :job_title, :addresses, :emails, :phones, :contacts, :id)
   @@contacts = []
+  @@working_contact = nil
 
   def initialize(first_name, last_name, job_title)
     @first_name = first_name
@@ -29,6 +33,14 @@ class Contact
       end
     end
     found_contact
+  end
+
+  def Contact.get_working_contact
+    @@working_contact
+  end
+
+  def Contact.store_working_contact(contact)
+    @@working_contact = contact
   end
 
   def store_address(address)
@@ -70,3 +82,10 @@ class Phone
     @type = type
   end
 end
+
+
+
+# Address.instance_methods(include_super=false)
+# Address.instance_methods(include_super=false).each do |a|
+# Address.instance_methods(include_super=false).to_s.tr("=","")
+# clean_method_list = Address.instance_methods(include_super=false).to_s.split("").select { |meth| meth =~ /[\=]/ }
