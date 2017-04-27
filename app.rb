@@ -4,6 +4,7 @@ require './lib/contact'
 require 'pry'
 
 also_reload('lib/**/*.rb')
+also_reload('css/*.css')
 
 get('/') do
   @contacts = Contact.all

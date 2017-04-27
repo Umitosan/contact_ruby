@@ -1,28 +1,28 @@
-
 <form action="/address_form" method="post">
   <label for="street">Street:</label>
-  <input type="text" name="street">
+  <input class="form-control" type="text" name="street">
   <label for="city">City:</label>
-  <input type="text" name="city">
+  <input class="form-control" type="text" name="city">
   <label for="zip">Zip:</label>
-  <input type="text" name="zip">
+  <input class="form-control" type="text" name="zip">
   <label for="state">State:</label>
-  <input type="text" name="state">
+  <input class="form-control" type="text" name="state">
   <label for="country">Country:</label>
-  <input type="text" name="country">
-  <button type="submit">Add to contact</button>
+  <input class="form-control" type="text" name="country">
+  <button class="btn btn-success" type="submit">Add to contact</button>
 </form>
-
+<hr>
 <form action="/phone_form" method="post">
   <label for="type">Type:</label>
-  <input type="text" name="type">
+  <input class="form-control" type="text" name="type">
   <label for="number">Phone Number:</label>
-  <input type="text" name="number">
-  <button type="submit">Add number to contact</button>
+  <input class="form-control" type="text" name="number">
+  <button class="btn btn-success" type="submit">Add number to contact</button>
 </form>
-
+<hr>
 <form action="/email_form" method="post">
-  <label for="email">email</label>
-  <input type="text" name="email">
-  <button type="submit">Add email to contact</button>
+  <label for="email">Email</label>
+  <input class="form-control" type="text" name="email">
+  <button class="btn btn-success" type="submit">Add email to contact</button>
 </form>
+<a href="/contact/<%=Contact.get_working_contact.id%>"><button class="btn btn-danger">Cancel</button></a>

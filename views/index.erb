@@ -3,7 +3,7 @@
 </div>
 
 <h1>Contacts:</h1>
-<a href="/add_contact_form"><button>Add Contact</button></a>
+<a href="/add_contact_form"><button class="btn btn-success">Add Contact</button></a>
 <ul>
   <%@contacts.each do |contact|%>
     <a href="/contact/<%=contact.id%>"><li><%= contact.first_name + contact.last_name %></li></a>
